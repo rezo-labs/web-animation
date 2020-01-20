@@ -1,0 +1,27 @@
+{
+  "name": "web-animation",
+  "version": "1.0.0",
+  "description": "web-animation",
+  "main": "gulpfile.js",
+  "repository": "https://github.com/rezo-labs/web-animation.git",
+  "author": "Lộc Trần <mrloctran19@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "gulp",
+    "boilerplate",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^9.7.0",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2"
+  }
+}
