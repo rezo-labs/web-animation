@@ -1,4 +1,37 @@
-body {
+body.test {
     background-color: black;
     color: pink;
 }
+
+.mtb-1 {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.center {
+    margin: auto;
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+}
+
+button {
+    border: solid 1px pink;
+    color: pink;
+    background-color: transparent;
+    padding: 4px 16px;
+    margin: 8px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: pink;
+    color: black;
+}
+
