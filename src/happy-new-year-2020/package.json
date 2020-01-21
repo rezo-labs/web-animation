@@ -1,0 +1,16 @@
+{
+  "name": "happy-new-year-2020",
+  "version": "1.0.0",
+  "description": "happy new year animation",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2"
+  },
+  "scripts": {
+    "start": "gulp browser-sync watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
