@@ -1,141 +1,144 @@
 @font-face {
-  font-family:PermanentMarker;
-  src: url('/fonts/PermanentMarker-Regular.ttf');
-}
-@font-face{
-  font-family: Papyrus;
-  src:url('/fonts/Papyrus.ttc') ;
+    font-family: PermanentMarker;
+    src: url("/fonts/PermanentMarker-Regular.ttf");
 }
 @font-face {
-  font-family: 'WorkSans';
-  src: url('/fonts/WorkSans-Medium.ttf');
+    font-family: Papyrus;
+    src: url("/fonts/Papyrus.ttc");
 }
-body,.layer{
-  margin: 0;
-  padding: 0;
-  background-color: white;
-  font-family: WorkSans;
+@font-face {
+    font-family: "WorkSans";
+    src: url("/fonts/WorkSans-Medium.ttf");
+}
+body,
+.layer {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: WorkSans;
 }
 
 /* -------------------------------------Layer Image------------------------------- */
-.layer{
-  position: relative;
-  height:0;
+.layer {
+    position: relative;
+    height: 0;
 }
-.layer0{
+.layer0 {
 }
-.layer0>img{
-  width: 100%;
-  height: 100%;
+.layer0 > img {
+    width: 100%;
+    height: 100%;
 }
 
-.layer1{
-  margin-top:-61px ;
+.layer1 {
+    margin-top: -61px;
 }
-.layer1>img{
-  width: 100%;
-  height: 100%;
+.layer1 > img {
+    width: 100%;
+    height: 100%;
 }
-.layer2{
-  margin-top:-151px;
+.layer2 {
+    margin-top: -151px;
 }
-.layer2>img{
-  width: 100%;
-  height: 100%;
+.layer2 > img {
+    width: 100%;
+    height: 100%;
 }
-.layer3{
-  margin-top:-195px;
+.layer3 {
+    margin-top: -195px;
 }
-.layer3>img{
-  width: 100%;
-  height: 100%;
+.layer3 > img {
+    width: 100%;
+    height: 100%;
 }
 /* -------------------------------------Layer Image------------------------------- */
 
 /* -------------------------------------main------------------------------- */
-.main{
-  margin: 0;
-  padding: 20px 50px;
-  position: relative;
+.main {
+    margin: 0;
+    padding: 20px 50px;
+    position: relative;
 }
 
-.content{
-  position: relative;
+.content {
+    position: relative;
 }
-.title{
-  margin-top:;
-  width:45%;
-  color: white;
-  padding-top: 120px;
+.title {
+    width: 45%;
+    color: white;
+    padding-top: 120px;
 }
-.title > h1{
-  font-family: PermanentMarker;
-  letter-spacing: 5px;
-  font-size: 140px;
-  margin: 0;
-  padding: 0;
+.title > h1 {
+    font-family: PermanentMarker;
+    letter-spacing: 5px;
+    font-size: 140px;
+    margin: 0;
+    padding: 0;
 }
-.title > p{
-  font-family: Papyrus;
-  font-weight: bold;
-  font-style: italic;
-  font-size: 35px;
-  width: 530px;
-  letter-spacing: 2.5px;
-  margin: 0;
-  padding: 0;
-  text-transform: capitalize;
-}
-
-.button{
-  margin-top: 35px;
-  display: inline-block;
-  padding: 15px 20px;
-  background-color: #FF6311;
-  text-align:;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  word-spacing: 40px;
-  font-size: 20px;
-}
-.button>a{
-  text-decoration: none;
-  color: white;
+.title > p {
+    font-family: Papyrus;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 35px;
+    width: 530px;
+    letter-spacing: 2.5px;
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
 }
 
-.map{}
-.map >a>img{
-  position: fixed;
-  border-radius: 35px;
-  -webkit-border-radius: 35px;
-  -moz-border-radius: 35px;
-  -ms-border-radius: 35px;
-  -o-border-radius: 35px;
-  border: 2px solid white;
-  width: 20%;
-  bottom: 30px;
-  right: 50px;
+.button {
+    margin-top: 35px;
+    display: inline-block;
+    padding: 15px 20px;
+    background-color: #ff6311;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    word-spacing: 40px;
+    font-size: 20px;
+}
+.button > a {
+    text-decoration: none;
+    color: white;
+}
+
+.map {
+}
+.map > a > img {
+    position: fixed;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    -ms-border-radius: 35px;
+    -o-border-radius: 35px;
+    border: 2px solid white;
+    width: 20%;
+    bottom: 30px;
+    right: 50px;
 }
 /* -------------------------------------main------------------------------- */
-#path{
-  position: absolute;
-  top: 370px;
-  left: 768px;
-  width:220px;
-  height: 250px;
+#path {
+    position: absolute;
+    top: 370px;
+    left: 768px;
 }
-#markerStart{
-  position: absolute;
-  top: 575px;
-  left: 895px;
-  width:2%;
+#markerStart {
+    position: absolute;
+    top: 575px;
+    left: 895px;
 }
-#markerEnd{
-  position: absolute;
-  top: 328px;
-  left: 928px;
-  width:2%;
+#markerEnd {
+    position: absolute;
+    top: 328px;
+    left: 928px;
+}
+#load {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

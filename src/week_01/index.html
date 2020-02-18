@@ -1,62 +1,95 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>ta nang</title>
-		<link rel="shortcut icon" href="favicon.ico">
-		<!-- <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo.css" /> -->
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<!--[if IE]>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ta nang</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<!--[if IE]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<script src='https://kit.fontawesome.com/a076d05399.js'></script>	
-	</head>
-	<body>
-		<div class="layer">
-			<div class="layer0">
-				<img src="img/Layer0.png" alt="layer0">
-			</div>
-			<div class="layer1">
-				<img src="img/Layer1.png" alt="layer1">
-			</div>
-			<div class="layer2">
-				<img src="img/Layer2.png" alt="layer2">
-			</div>
-			<div class="layer3">
-				<img src="img/Layer3.png" alt="layer3">
-				<div class="locate">
-					<img id="path" src="/img/path.svg" alt="path">
-					<img id="markerStart" src="img/marker.svg" alt="markerStart">
-					<img id="markerEnd" src="img/marker.svg" alt="markerStart">
-				</div>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</head>
+
+<body>
+	<div class="layer">
+		<div class="layer0">
+			<img src="img/Layer0.png" alt="layer0">
+		</div>
+		<div class="layer1">
+			<img src="img/Layer1.png" alt="layer1">
+		</div>
+		<div class="layer2">
+			<img src="img/Layer2.png" alt="layer2">
+		</div>
+		<div class="layer3">
+			<img src="img/Layer3.png" alt="layer3">
+			<div class="locate">
+				<!-- <img id="path" src="/img/path.svg" alt="path"> -->
+				<svg id="path" width="287" height="308" xmlns="http://www.w3.org/2000/svg">
+					<g stroke="#FFF" stroke-width="5.5" fill="none" fill-rule="evenodd">
+						<path
+							d="M259.414 131.477c-6.277 2.897-12.94 4.683-19.603 6.277M233.244 139.154c-3.573.628-7.146 1.352-10.768 1.883M274.141 121.868a42.918 42.918 0 01-8.74 6.519M204.997 143.596l-20.424 2.752M177.909 147.314l-10.767 1.69M222.476 141.037l-10.815 1.593M282.205 86.282c1.303 6.712 2.076 13.713.482 20.473M280.466 113.08c-1.497 3.332-3.814 6.229-6.325 8.788M268.009 79.281c3.573-.145 7.436-.241 10.67 1.497M230.492 75.95c6.132 3.09 13.085 4.49 19.941 4.393M257.145 80.102c3.621-.242 7.242-.676 10.864-.821M220.062 62.671c.435 3.621 2.221 7.05 4.925 9.512M234.5 28.244c-1.787 6.663-5.216 12.747-9.416 18.203" />
+						<path
+							d="M221.317 52c-.869 1.593-1.303 3.428-1.351 5.215-.145 1.835-.145 3.621.096 5.456M231.264 11.44c1.883 3.091 3.38 6.52 3.718 10.14M225.035 2.46c2.125 2.945 4.346 5.842 6.23 8.98M149.808 152.48c-6.664 1.69-13.327 3.477-19.652 6.23M124.12 161.606c-1.545.918-3.235 1.69-4.732 2.753l-4.345 3.283M167.142 149.004c-3.573.676-7.194 1.256-10.72 2.028M99.833 176.43c-3.235 1.11-6.615 2.028-10.043 2.173-3.428.145-6.857.096-10.333.048M72.794 178.41l-10.961-.339M115.043 167.642c-2.753 2.366-5.794 4.394-9.03 6.084M44.209 177.927c-6.856.145-13.761.434-20.57 1.448M17.073 180.679c-3.525.87-7.001 2.076-10.043 4.152M61.833 178.071l-10.912-.193M8.092 199.558c4.587 5.118 9.995 9.464 15.451 13.617M28.951 217.182c2.945 2.125 5.939 4.201 8.981 6.229M7.03 184.831c-1.4 1.111-2.946 2.27-3.573 4.008-.628 1.738 0 3.67.772 5.263M52.755 233.02c5.843 3.67 11.734 7.194 17.624 10.719M76.173 247.12l9.464 5.455M37.932 223.411l9.126 5.987M101.04 261.218l18.107 9.85M125.086 274.255l9.657 5.07M85.637 252.575l9.512 5.36M150.387 287.485l18.397 9.32M174.819 299.797l9.802 4.83M134.743 279.325l9.657 5.07" />
+					</g>
+				</svg>
+				<!-- <img id="markerStart" src="img/marker.svg" alt="markerStart"> -->
+				<svg id="markerStart" width="39" height="56" xmlns="http://www.w3.org/2000/svg">
+					<g fill-rule="nonzero" fill="none">
+						<path
+							d="M38.692 19.696c0 4.301-3.017 11.39-8.967 21.07-4.351 7.077-8.765 13.049-8.809 13.11l-1.295 1.749-1.295-1.75c-.044-.06-4.457-6.032-8.808-13.11C3.568 31.088.55 23.998.55 19.696.55 9.182 9.105.626 19.621.626c10.516 0 19.07 8.556 19.07 19.07z"
+							fill="#FF6311" />
+						<path
+							d="M30.526 19.4c0 6.014-4.891 10.906-10.905 10.906-6.014 0-10.905-4.892-10.905-10.906 0-6.013 4.891-10.905 10.905-10.905 6.014 0 10.905 4.892 10.905 10.905z"
+							fill="#FFDBA9" />
+					</g>
+				</svg>
+				<!-- <img id="markerEnd" src="img/marker.svg" alt="markerStart"> -->
+				<svg id="markerEnd" width="39" height="56" xmlns="http://www.w3.org/2000/svg">
+					<g fill-rule="nonzero" fill="none">
+						<path
+							d="M38.692 19.696c0 4.301-3.017 11.39-8.967 21.07-4.351 7.077-8.765 13.049-8.809 13.11l-1.295 1.749-1.295-1.75c-.044-.06-4.457-6.032-8.808-13.11C3.568 31.088.55 23.998.55 19.696.55 9.182 9.105.626 19.621.626c10.516 0 19.07 8.556 19.07 19.07z"
+							fill="#FF6311" />
+						<path
+							d="M30.526 19.4c0 6.014-4.891 10.906-10.905 10.906-6.014 0-10.905-4.892-10.905-10.906 0-6.013 4.891-10.905 10.905-10.905 6.014 0 10.905 4.892 10.905 10.905z"
+							fill="#FFDBA9" />
+					</g>
+				</svg>
 			</div>
 		</div>
+	</div>
 
-		<div class="main">
-			<div><a href="http://"><img src="img/logo.svg" alt="logo"></a></div>
-			<!-- content -->
-			<div class="content">
-				<div class="title">
-					<h1>ta nang</h1>
-					<p>Ta Nang - Phan Dung is the best route for treckking and discovering the stunning nature of VietNam.</p>
-					<div class="button">
-						<a href="#">Explore <span class="fas fa-arrow-right"></span></a>
-					</div>
+	<div class="main">
+		<div><a href="http://"><img src="img/logo.svg" alt="logo"></a></div>
+		<!-- content -->
+		<div class="content">
+			<div class="title">
+				<h1>ta nang</h1>
+				<p>Ta Nang - Phan Dung is the best route for treckking and discovering the stunning nature of VietNam.
+				</p>
+				<div class="button">
+					<a href="#">Explore <span class="fas fa-arrow-right"></span></a>
 				</div>
-
-				<!-- location -->
-				<div class="map">
-					<a href="#"><img src="img/map.png" alt="map"></a>
-				</div>
-				<!-- /location -->
-
 			</div>
-			<!-- /content -->
+
+			<!-- location -->
+			<div class="map">
+				<a href="#"><img src="img/map.png" alt="map"></a>
+			</div>
+			<!-- /location -->
+
 		</div>
-	</body>
-	<script src="node_modules/animejs/lib/anime.min.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
+		<!-- /content -->
+	</div>
+	<button type="button" class="buttonStart">Click me </button>
+</body>
+<script src="node_modules/animejs/lib/anime.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
 </html>
