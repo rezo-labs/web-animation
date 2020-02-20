@@ -13,6 +13,28 @@
 //     easing: "easeInOutQuad",
 //     autoplay: false
 // });
+const linkButton = document.getElementsByClassName("linkButton")[0];
+// console.log(linkButton.children);
+// linkButton.onmouseout = () => {
+//     link
+// }
+
+window.addEventListener("scroll", () => {
+    // console.log("pos: ", window.scrollY);
+    if (window.scrollY > 600) {
+        for (let i = 0; i <= 2; i += 1) {
+            document.querySelector(`.layer_${i}`).style.display = `none`;
+        }
+    } else {
+        for (let i = 0; i <= 2; i += 1) {
+            document.querySelector(`.layer_${i}`).style.display = `initial`;
+            document.querySelector(
+                `.layer_${i}`
+            ).style.transform = `translate3d(0,${(((4 - i) * 1) / 5) *
+                window.scrollY}px,0)`;
+        }
+    }
+});
 
 const drawPictureStart = anime({
     targets: "#markerStart",
@@ -26,10 +48,10 @@ const drawPictureStart = anime({
     loop: true
 });
 const drawMap = anime({
-    targets: "#path",
-    // targets: "#path g path",
-    // strokeDashoffset: [anime.setDashoffset, 0],
-    clipPath: [inset(5, 5, 5, 5), rect(10, 50, 50, 10)],
+    // targets: "#path",
+    targets: "#path g path",
+    strokeDashoffset: [anime.setDashoffset, 0],
+    // clipPath: [inset(5, 5, 5, 5), rect(10, 50, 50, 10)],
     easing: "easeInOutSine",
     duration: 3000,
     endDelay: 3000,
