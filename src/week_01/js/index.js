@@ -49,14 +49,14 @@ const drawPictureStart = anime({
 });
 const drawMap = anime({
     // targets: "#path",
-    targets: "#path g path",
-    strokeDashoffset: [anime.setDashoffset, 0],
-    // clipPath: [inset(5, 5, 5, 5), rect(10, 50, 50, 10)],
-    easing: "easeInOutSine",
+    targets: "#path",
+    // strokeDashoffset: [anime.setDashoffset, 0],
+    clipPath: "inset(100% 0px 0px 0px)",
+    easing: "linear",
     duration: 3000,
     endDelay: 3000,
     delay: 3000,
-    // direction: "reverse",
+    direction: "reverse",
     autoplay: true,
     loop: true
 });
@@ -65,8 +65,8 @@ const drawPictureEnd = anime({
     easing: "easeInOutSine",
     opacity: [0, 1],
     duration: 3000,
-    endDelay: 3000,
-    delay: 3000,
+    endDelay: 0,
+    delay: 6000,
     autoplay: true,
     // direction: "alternate",
     loop: true

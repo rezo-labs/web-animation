@@ -95,6 +95,9 @@ body,
     color: #ff6311;
     padding-top: 60px;
     width: fit-content;
+    opacity: 0;
+    animation: superOpacity 1s ease-in;
+    animation-fill-mode: forwards;
 }
 .title > h1 {
     font-family: PermanentMarker;
@@ -172,6 +175,9 @@ body,
 /* -------------------------------------main------------------------------- */
 #path {
     position: relative;
+    /* animation: clipPath 3s ease-out 3s infinite reverse;
+    animation-fill-mode: forwards; */
+    clip-path: inset(0 0 0 0);
 }
 #markerStart {
     position: absolute;
@@ -218,3 +224,17 @@ body,
     right: 35%;
     top: 310px;
 }
+
+@keyframes superOpacity {
+    to {
+        opacity: 1;
+    }
+}
+/* @keyframes clipPath {
+    from {
+        clip-path: inset(0 0 0 0);
+    }
+    to {
+        clip-path: inset(100% 0 0 0);
+    }
+} */
