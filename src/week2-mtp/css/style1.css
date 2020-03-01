@@ -71,6 +71,7 @@ body {
     margin: 0;
     padding: 15px 20px;
     background-image: url(/img/background.png);
+    position: relative;
 }
 #logo {
     width: 13%;
@@ -101,6 +102,7 @@ body {
 
 .item2 {
     background-image: url("/img/background.png");
+    position: relative;
 }
 /* navbar */
 .nav {
@@ -160,7 +162,9 @@ li > a:hover {
 }
 
 .arrow {
-    float: right;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
 }
 .arrow > a {
     color: white;
@@ -205,7 +209,7 @@ li > a:hover {
     overflow: hidden;
 }
 #sky {
-    animation: slide-layer-3 1s ease-in 7s;
+    animation: slide-layer-3 1s ease-in 8s;
     animation-fill-mode: forwards;
 }
 
@@ -306,7 +310,11 @@ li > a:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    animation: hide-layer 0.1s linear 6.6s;
+    /* animation: hide-layer 0.1s linear 6.6s; */
+    background: #ffffff;
+    /* animation-fill-mode: forwards; */
+    animation: clip-path 1.5s linear 4.8s;
+    z-index: 100;
     animation-fill-mode: forwards;
     overflow: hidden;
 }
@@ -320,20 +328,20 @@ li > a:hover {
     bottom: 0;
 }
 .superDiv-child-1 {
-    animation: slide-layer-1 1.5s linear 4.5s;
+    animation: slide-layer-2 1s linear 4.5s;
     animation-fill-mode: forwards;
-    left: 0;
+    right: 0;
 }
-.superDiv-child-2 {
+/* .superDiv-child-2 {
     animation: slide-layer-1 1.5s linear 4.8s;
     animation-fill-mode: forwards;
-    left: 33.33%;
+    left: 0;
 }
 .superDiv-child-3 {
     animation: slide-layer-1 1.5s linear 5.1s;
     animation-fill-mode: forwards;
-    left: 66.66%;
-}
+    left: 50%;
+} */
 
 .superDiv-1 {
     height: 100%;
@@ -349,8 +357,10 @@ li > a:hover {
 }
 .wrapTitle {
     position: absolute;
-    top: 10%;
-    right: 10%;
+    bottom: 150px;
+    left: 13px;
+    z-index: 2;
+    user-select: none;
 }
 .mainTitle {
     height: 62.5px;
@@ -360,7 +370,7 @@ li > a:hover {
     align-items: center;
     overflow: hidden;
     color: black;
-    margin: 0.67em;
+    margin: 0.67em 0;
 }
 .title {
     animation: show-words 2s ease-in-out 1s;
@@ -378,11 +388,12 @@ h1.title {
     position: relative;
     width: fit-content;
     margin: auto;
+    user-select: none;
 }
 .Date-content {
     font-size: 8rem;
     text-transform: uppercase;
-    animation: words-rotateZ 2s ease-in-out 8.5s;
+    animation: words-rotateZ 2s ease-in-out 9.5s;
     animation-fill-mode: forwards;
 }
 .wrapLine {
@@ -392,13 +403,32 @@ h1.title {
     height: 10px;
     width: 0%;
     overflow: hidden;
-    animation: slide-layer-4 2s ease-in 6.5s;
+    animation: slide-layer-4 2s ease-in 7s;
     animation-fill-mode: forwards;
+}
+.connection {
+    position: absolute;
+    bottom: 50px;
+    left: 13px;
 }
 
 .wrapLine img {
     width: 340px;
     height: 10px;
+}
+.wrapMainTitle {
+    position: absolute;
+    bottom: 150px;
+    left: 13px;
+    z-index: 1;
+    user-select: none;
+}
+.wrapMainTitle > h1 {
+    padding: 0;
+    font-family: BaiJamjuree-Bold;
+    text-transform: uppercase;
+    font-size: 50px;
+    /* text-shadow: 2px 2px 4px #000000; */
 }
 @keyframes slide-layer-1 {
     from {
@@ -455,6 +485,9 @@ h1.title {
     0% {
         transform: rotateZ(-30deg);
     }
+    25% {
+        transform: rotateZ(-15deg);
+    }
     50% {
         transform: rotateZ(0deg);
     }
@@ -464,4 +497,17 @@ h1.title {
     100% {
         transform: rotateZ(0deg);
     }
+}
+@keyframes clip-path {
+    0% {
+        clip-path: inset(0 0 0 0);
+    }
+    50% {
+        clip-path: inset(0 50% 0 0);
+    }
+    100% {
+        clip-path: inset(100% 50% 0 0);
+    }
+}
+@media only screen and (max-width: 966px) {
 }
