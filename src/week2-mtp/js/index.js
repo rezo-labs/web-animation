@@ -1,5 +1,7 @@
-// import anime from "animejs";
-// import anime from "animejs/lib/anime.es.js";
+console.log('hello world');
+
+
+import anime from "animejs";
 // const anime = require("animejs");
 
 // const box = anime({
