@@ -1,73 +1,111 @@
-console.log('hello')
-var LOGO_LENGTH = 350;
-var LOADING_LENGTH = 350;
-var INCREMENT = 20;
-var X = window.innerWidth / 2 - 175;
-var Y = window.innerHeight / 2 - 140;
-var REVEAL_BLOCK = document.getElementById("revealBlock");
-REVEAL_BLOCK.style.left = X;
-REVEAL_BLOCK.style.top = Y;
+const img = $("img").toArray();
+var PROGRESS = 0;
+var INCREMENT = 100 / img.length;
 
-anime({
-    targets: '#colored-logo',
-    opacity: 1,
-    easing: "easeInOutSine",
-    duration: 4000
-  });
+// @read https://stackoverflow.com/questions/3877027/jquery-callback-on-image-load-even-when-the-image-is-cached
+// select het tat ca hinh
 
-anime({
-    targets: '#revealBlock',
-    scale: 0.7,
-    translateX: 0,
-    translateY: 0,
-    top: 20,
-    left: 20,
-    easing: "easeInOutSine",
-    delay: 3000,
-    duration: 500,
-});
+function handleLoad() {
+    $("img")
+        .one("load", function() {
+            // do stuff
+            // neu load xong thi cap nhat tien do
+            updateProgress();
+            // cap nhat animation
+        })
+        .each(function() {
+            if (this.complete) {
+                $(this).load(); // For jQuery < 3.0
+                // $(this).trigger('load'); // For jQuery >= 3.0
+            }
+        });
+}
 
-anime({
-    targets: '#loading-overlay',
-    opacity: 0,
-    delay: 3000,
-    easing: "easeInOutSine",
-    duration: 550,
-})
+// img.map((e, index) => (e.onload = updateProgress()));
 
-anime({
-    targets: "#black-logo",
-    opacity: 1,
-    delay: 3500,
-    easing: "easeInOutSine",
-    duration: 300,
-})
+function updateProgress() {
+    PROGRESS = PROGRESS + INCREMENT;
+    console.log("progress", PROGRESS);
+}
 
-anime({
-    targets: 'body',
-    backgroundColor: '#FFF',  
-    duration: 200,
-    delay: 3200,
-    easing: "easeInOutSine",
-    duration: 550,
-})
+function setCenterBlock() {
+    // get center point of the screen
+    var X = window.innerWidth / 2 - 175;
+    var Y = window.innerHeight / 2 - 140;
 
+    console.log("X", { X: X, Y: Y });
 
+    // select reveal block = grey-logo + colored logo
+    var REVEAL_BLOCK = $("#revealBlock").get("0");
 
+    console.log("REVEAL_BLOCK", REVEAL_BLOCK);
 
+    // set Reveal block to center of the screen
+    REVEAL_BLOCK.style.left = X;
+    REVEAL_BLOCK.style.top = Y;
+}
 
-// function isReady() {
-//     if (LOADING_LENGTH > 350) return true;
-//     return false 
-// }
+function updateProgressImage() {
+    // document.getElementById("");
+    // anime({
+    //     targets: "#colored-logo",
+    //     clipPath: "inset( 0 100% 0 0)",
+    //     direction: "reverse",
+    //     easing: "easeInOutSine",
+    //     duration: 3500
+    // });
+}
 
-// var refreshId = setInterval(function() {
-//     if (isReady()) {
-//         clearInterval(refreshId);
-//     }
-//     LOADING_LENGTH = LOADING_LENGTH - INCREMENT;
-//     anime({
-//         targets: '#colored-logo',
-//         translateX: -LOADING_LENGTH,
-//       });
-// }, 1000);
+function startReveal() {
+    //move to top
+    anime({
+        targets: "#revealBlock",
+        scale: 0.7,
+        translateX: 0,
+        translateY: 0,
+        top: 20,
+        left: 20,
+        easing: "easeInOutSine",
+        delay: 3000,
+        duration: 500
+    });
+
+    // change background to white
+    anime({
+        targets: "body",
+        backgroundColor: "#FFF",
+        duration: 200,
+        delay: 3200,
+        easing: "easeInOutSine",
+        duration: 550
+    });
+
+    // Reveal black logo
+    anime({
+        targets: "#black-logo",
+        opacity: 1,
+        delay: 3500,
+        easing: "easeInOutSine",
+        duration: 300
+    });
+
+    // hide loading
+    anime({
+        targets: "#loading-overlay",
+        opacity: 0,
+        delay: 3000,
+        easing: "easeInOutSine",
+        duration: 550
+    });
+}
+
+//=========== THUC THI HAM ====================
+// dau tien set logo chinh giuaw
+setCenterBlock();
+
+// goi ham load - ham nay se tim hieu async
+// Ham handleLoad se goi updateProgressImage de cap nhat load hinh anh
+handleLoad();
+
+// Ham StartReveal se cho handleLoad()
+// load xong thi goi StartReveal()
