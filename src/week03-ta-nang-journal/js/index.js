@@ -1,61 +1,73 @@
-// import anime from "animejs";
-// import anime from "animejs/lib/anime.es.js";
-// const anime = require("animejs");
+console.log('hello')
+var LOGO_LENGTH = 350;
+var LOADING_LENGTH = 350;
+var INCREMENT = 20;
+var X = window.innerWidth / 2 - 175;
+var Y = window.innerHeight / 2 - 140;
+var REVEAL_BLOCK = document.getElementById("revealBlock");
+REVEAL_BLOCK.style.left = X;
+REVEAL_BLOCK.style.top = Y;
 
-// const box = anime({
-//     targets: ".box",
-//     translateX: 300,
-//     backgroundColor: "#FFF",
-//     duration: 1000,
-//     loop: true,
-//     direction: "alternate",
-//     borderRadius: ["0%", "50%"],
-//     easing: "easeInOutQuad",
-//     autoplay: false
-// });
+anime({
+    targets: '#colored-logo',
+    opacity: 1,
+    easing: "easeInOutSine",
+    duration: 4000
+  });
 
-const drawPictureStart = anime({
-    targets: "#markerStart",
+anime({
+    targets: '#revealBlock',
+    scale: 0.7,
+    translateX: 0,
+    translateY: 0,
+    top: 20,
+    left: 20,
     easing: "easeInOutSine",
-    opacity: [0, 1],
-    duration: 3000,
-    delay: 0,
-    endDelay: 6000,
-    autoplay: true,
-    // direction: "reverse",
-    loop: true
-});
-const drawMap = anime({
-    // targets: "#path",
-    targets: "#path g path",
-    strokeDashoffset: [anime.setDashoffset, 0],
-    // height: [0, 308],
-    easing: "easeInOutSine",
-    duration: 3000,
-    endDelay: 3000,
     delay: 3000,
-    autoplay: true,
-    loop: true
+    duration: 500,
 });
-const drawPictureEnd = anime({
-    targets: "#markerEnd",
-    easing: "easeInOutSine",
-    opacity: [0, 1],
-    duration: 3000,
-    endDelay: 3000,
+
+anime({
+    targets: '#loading-overlay',
+    opacity: 0,
     delay: 3000,
-    autoplay: true,
-    // direction: "alternate",
-    loop: true
-});
+    easing: "easeInOutSine",
+    duration: 550,
+})
 
-// document.querySelector(".play").onclick = box.play;
-// document.querySelector(".pause").onclick = box.pause;
+anime({
+    targets: "#black-logo",
+    opacity: 1,
+    delay: 3500,
+    easing: "easeInOutSine",
+    duration: 300,
+})
 
-// document.querySelector(".draw").onclick = drawMouse.play;
-// document.querySelector(".draw-pause").onclick = drawMouse.pause;
+anime({
+    targets: 'body',
+    backgroundColor: '#FFF',  
+    duration: 200,
+    delay: 3200,
+    easing: "easeInOutSine",
+    duration: 550,
+})
 
-// document.querySelector(".buttonStart").onclick = drawPictureStart.play;
-// document.querySelector("#path").onclick = drawMap.play;
-// document.querySelector("#markerStart").onclick = drawPictureEnd.play;
-// document.querySelector(".pause").onclick = box.pause;
+
+
+
+
+// function isReady() {
+//     if (LOADING_LENGTH > 350) return true;
+//     return false 
+// }
+
+// var refreshId = setInterval(function() {
+//     if (isReady()) {
+//         clearInterval(refreshId);
+//     }
+//     LOADING_LENGTH = LOADING_LENGTH - INCREMENT;
+//     anime({
+//         targets: '#colored-logo',
+//         translateX: -LOADING_LENGTH,
+//       });
+// }, 1000);
