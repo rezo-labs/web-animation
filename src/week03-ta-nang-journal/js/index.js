@@ -2,7 +2,7 @@ const img = $("img").toArray();
 var PROGRESS = 0;
 var INCREMENT = 100 / img.length;
 const PAGE_REVEAL_TIME = 1000;
-const DELAY_BEFORE_PAGE_REVEAL = 1500;
+const DELAY_BEFORE_PAGE_REVEAL = 1000;
 const GAP = 300;
 
 // @read https://stackoverflow.com/questions/3877027/jquery-callback-on-image-load-even-when-the-image-is-cached

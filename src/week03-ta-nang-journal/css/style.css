@@ -54,3 +54,9 @@ body {
     transition: clip-path 1s ease-in-out;
     clip-path: inset(0 100% 0 0);
 }
+
+.test-swipe {
+    text-align: center;
+    line-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
