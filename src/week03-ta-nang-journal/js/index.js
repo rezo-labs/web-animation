@@ -2,6 +2,7 @@ const img = $("img").toArray();
 var PROGRESS = 0;
 var INCREMENT = 100 / img.length;
 const PAGE_REVEAL_TIME = 1000;
+const DELAY_BEFORE_PAGE_REVEAL = 1500;
 const GAP = 300;
 
 // @read https://stackoverflow.com/questions/3877027/jquery-callback-on-image-load-even-when-the-image-is-cached
@@ -17,7 +18,7 @@ function handleLoad() {
             // cap nhat animation
             if (PROGRESS > 99) {
                 console.log("load xong");
-                startReveal();
+                setTimeout(() => startReveal(),DELAY_BEFORE_PAGE_REVEAL);
             }
         })
         .each(function() {
