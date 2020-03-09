@@ -13,17 +13,17 @@ function handleLoad() {
             // do stuff
             // neu load xong thi cap nhat tien do
             updateProgress();
-            console.log(this)
+            console.log(this);
             // cap nhat animation
             if (PROGRESS > 99) {
-                console.log('load xong')
+                console.log("load xong");
                 startReveal();
             }
         })
         .each(function() {
             if (this.complete) {
                 // $(this).load(); // For jQuery < 3.0
-                $(this).trigger('load'); // For jQuery >= 3.0
+                $(this).trigger("load"); // For jQuery >= 3.0
             }
         });
 }
@@ -32,6 +32,7 @@ function handleLoad() {
 
 function updateProgress() {
     PROGRESS = PROGRESS + INCREMENT;
+    $("#colored-logo").css("clip-path", `inset(0 ${100 - PROGRESS}% 0 0 )`);
     console.log("progress", PROGRESS);
 }
 
@@ -64,7 +65,7 @@ function updateProgressImage() {
 }
 
 function startReveal() {
-    console.log('START REVEAL')
+    console.log("START REVEAL");
     //move to top
     anime({
         targets: "#revealBlock",
@@ -112,8 +113,7 @@ setCenterBlock();
 // goi ham load - ham nay se tim hieu async
 // Ham handleLoad se goi updateProgressImage de cap nhat load hinh anh
 
-handleLoad()
-
+handleLoad();
 
 // Ham StartReveal se cho handleLoad()
 // load xong thi goi StartReveal()
