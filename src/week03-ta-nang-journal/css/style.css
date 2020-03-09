@@ -76,6 +76,7 @@ h1, p {
 
 
 .logo img{
+    margin-top: 25px;
     width: 35%;
     height: auto;
 }
@@ -101,6 +102,7 @@ h1, p {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
 }
 .imgs > img{
     position: absolute;
@@ -130,6 +132,7 @@ h1, p {
 .mxh {
     display: inline-block;
     margin-left: 25px;
+    margin-bottom: 50px;
 }
 .mxh p {
     margin: 0 !important;
@@ -167,8 +170,7 @@ h1, p {
     color: var(--soil-gold);
     font-weight: bolder;
 }
-.content {
-}
+
 .content h1 {
     font-size: 60px;
     font-weight: bold;
@@ -179,7 +181,7 @@ h1, p {
 }
 /* step bar */
 .stepbar {
-    padding: 50px 0 10px 0;
+    padding: 50px 0 30px 0;
 }
 .progressbar {
     counter-reset: step;
@@ -222,11 +224,25 @@ h1, p {
 }
 
 /* map */
-
+.map {
+    position: relative;
+    height: 450px;
+}
 .map img {
+    position: absolute;
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: inherit;
+    border-radius: 5px;
+    object-fit: cover;
+    z-index: -1;
+    box-shadow: var(--box-shadow);
+}
+.gradient {
+    width: inherit;
+    height: inherit;
+    background-image: linear-gradient(to right, rgba(128, 128, 128, 50%), rgba(255, 255, 255, 0%));      
+    z-index: 1;
+    border-radius: 5px;
 }
 
 @media screen and (max-width: 576px){
