@@ -5,24 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="bootstrap-4.3.1//dist/css/bootstrap.css">
+  <!-- fontawesome -->
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <link rel="stylesheet" href="fontawesome-free-5.12.1-web/css/all.css">
+  <link rel="stylesheet" href="fontawesome-free-5.12.1-web/css/brands.css">
+  <link rel="stylesheet" href="fontawesome-free-5.12.1-web/css/solid.css">
+
   <title>week3 ta nang journal</title>
 </head>
 
 <body>
-  <div id="loading-overlay" class="loading-overlay">
+  <!-- <div id="loading-overlay" class="loading-overlay">
     <div class="centered">
       <div id="revealBlock" class="revealBlock">
         <img id="colored-logo" class="logo colored" src="img/logo_white.png" />
         <img id="grey-logo" class="logo grey" src="img/logo_grey.png" />
       </div>
     </div>
-  </div>
-  <main>
-    <img id="black-logo" src="img/logo_black.png" />
+  </div> -->
+  <main class="container-fluid">
+    <div class="row header">
+      <div class="col-md-6 col-sm-12 logo">
+        <img src="img/logo_black.png" alt="logo" width="100%" height="auto">
+        <!-- <img id="black-logo" src="img/logo_black.png" width="100%" height="auto" /> -->
+      </div>
+      <div class="col-md-6 col-sm-12 hashtag">
+        <a href="#">#Ta Nang #2020 #10years #brolationship</a>
+      </div>
+    </div>
+
+    <div class="row main-content">
+      <div class="col-md-6 col-sm-12 left-content">
+        <!-- <img src="img/1.jpg" width="50%" height="auto" alt=""> -->
+        <div class=" imgs">
+          <img src="img/1.jpg" alt="" id="img-1">
+          <img src="img/2.jpg" alt="" id="img-2">
+          <img src="img/3.jpg" alt="" id="img-3">
+          <img src="img/4.jpg" alt="" id="img-4">
+        </div>
+        <div class="mxh">
+          <p>follow us on</p>
+          <div class="icon">
+            <a href="#"><i class="fab fa-facebook-square"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 right-content">
+        <div class="tour">
+          <div class="timeline">
+            <div class="time">
+              <p>08 : 00 AM</p>
+            </div>
+            <div class="round"><span>Chặng 1</span>/10</div>
+          </div>
+          <div class="content">
+            <h1>Đi lạc lần thứ 1</h1>
+            <p>Vừa mới đặt chân tới Tà Năng cả nhóm đã bị lạc. Nguyên nhân bị lạc là vì libero ngu. Sau một hồi lạc trong rừng 30 phút thì cũng tìm được cách đi ra. không hiểu sao lại có một thằng ngu như vậy trong đoàn ...</p>
+          </div>
+          <div class="stepbar">
+            <ul class="progressbar">
+              <li class="complete"></li>
+              <li class="complete"></li>
+              <li class="active"></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="map">
+          <img src="img/map.png" alt="map" width="100%" height="auto">
+        </div>
+      </div>
+    </div>
   </main>
 </body>
   <script src="js/anime-master/lib/anime.min.js"></script>
   <script type="text/javascript"  src="js/index.js" ></script>
-
 </html>

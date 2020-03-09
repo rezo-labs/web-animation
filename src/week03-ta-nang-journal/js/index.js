@@ -13,7 +13,7 @@ anime({
     opacity: 1,
     easing: "easeInOutSine",
     duration: 4000
-  });
+});
 
 anime({
     targets: '#revealBlock',
