@@ -1,6 +1,7 @@
 const img = $("img").toArray();
 var PROGRESS = 0;
 var INCREMENT = 100 / img.length;
+const PAGE_REVEAL_TIME = 1000;
 
 // @read https://stackoverflow.com/questions/3877027/jquery-callback-on-image-load-even-when-the-image-is-cached
 // select het tat ca hinh
@@ -11,12 +12,17 @@ function handleLoad() {
             // do stuff
             // neu load xong thi cap nhat tien do
             updateProgress();
+            console.log(this)
             // cap nhat animation
+            if (PROGRESS > 99) {
+                console.log('load xong')
+                startReveal();
+            }
         })
         .each(function() {
             if (this.complete) {
-                $(this).load(); // For jQuery < 3.0
-                // $(this).trigger('load'); // For jQuery >= 3.0
+                // $(this).load(); // For jQuery < 3.0
+                $(this).trigger('load'); // For jQuery >= 3.0
             }
         });
 }
@@ -57,6 +63,7 @@ function updateProgressImage() {
 }
 
 function startReveal() {
+    console.log('START REVEAL')
     //move to top
     anime({
         targets: "#revealBlock",
@@ -66,36 +73,31 @@ function startReveal() {
         top: 20,
         left: 20,
         easing: "easeInOutSine",
-        delay: 3000,
-        duration: 500
+        duration: PAGE_REVEAL_TIME
     });
 
     // change background to white
     anime({
         targets: "body",
         backgroundColor: "#FFF",
-        duration: 200,
-        delay: 3200,
         easing: "easeInOutSine",
-        duration: 550
+        duration: PAGE_REVEAL_TIME
     });
 
     // Reveal black logo
     anime({
         targets: "#black-logo",
         opacity: 1,
-        delay: 3500,
         easing: "easeInOutSine",
-        duration: 300
+        duration: PAGE_REVEAL_TIME
     });
 
     // hide loading
     anime({
         targets: "#loading-overlay",
         opacity: 0,
-        delay: 3000,
         easing: "easeInOutSine",
-        duration: 550
+        duration: PAGE_REVEAL_TIME
     });
 }
 
@@ -105,7 +107,9 @@ setCenterBlock();
 
 // goi ham load - ham nay se tim hieu async
 // Ham handleLoad se goi updateProgressImage de cap nhat load hinh anh
-handleLoad();
+
+handleLoad()
+
 
 // Ham StartReveal se cho handleLoad()
 // load xong thi goi StartReveal()
