@@ -2,6 +2,7 @@ const img = $("img").toArray();
 var PROGRESS = 0;
 var INCREMENT = 100 / img.length;
 const PAGE_REVEAL_TIME = 1000;
+const GAP = 300;
 
 // @read https://stackoverflow.com/questions/3877027/jquery-callback-on-image-load-even-when-the-image-is-cached
 // select het tat ca hinh
@@ -81,7 +82,8 @@ function startReveal() {
         targets: "body",
         backgroundColor: "#FFF",
         easing: "easeInOutSine",
-        duration: PAGE_REVEAL_TIME
+        duration: 500,
+        delay: PAGE_REVEAL_TIME+GAP
     });
 
     // Reveal black logo
@@ -89,7 +91,8 @@ function startReveal() {
         targets: "#black-logo",
         opacity: 1,
         easing: "easeInOutSine",
-        duration: PAGE_REVEAL_TIME
+        duration: 500,
+        delay: PAGE_REVEAL_TIME,
     });
 
     // hide loading
@@ -97,7 +100,8 @@ function startReveal() {
         targets: "#loading-overlay",
         opacity: 0,
         easing: "easeInOutSine",
-        duration: PAGE_REVEAL_TIME
+        duration: 500,
+        delay: PAGE_REVEAL_TIME,
     });
 }
 

@@ -17,6 +17,7 @@ body {
     left: 20px;
     width: 350px;
     opacity: 0;
+    z-index: 999;
     transform: scale(0.7);
 }
 
