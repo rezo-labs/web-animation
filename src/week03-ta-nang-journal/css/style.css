@@ -53,12 +53,12 @@ body {
 }
 
 /*  */
-@font-face  {
+@font-face {
     src: url('../fonts/DarkerGrotesque-Medium.ttf');
     font-family: DarkerGrotesque-Medium;
 }
 
-:root  {
+:root {
     --soil-gold: #B09324;
     --gray1: #EAEBEA;
     --strong-gray: #B9B9B9;
@@ -66,21 +66,25 @@ body {
     --blue: #0090FF;
     --box-shadow: 0px 0px 8px 4px rgba(0%, 0%, 0%, 10%);
 }
-*{
+
+* {
     /* background-color: var(--gray1); */
     font-family: DarkerGrotesque-Medium;
 }
-h1, p {
+
+h1,
+p {
     margin: 0 !important;
 }
 
 
-.logo img{
+.logo img {
     margin-top: 25px;
     width: 35%;
     height: auto;
 }
-.hashtag  {
+
+.hashtag {
     margin-top: 50px;
     justify-content: flex-end;
     display: flex;
@@ -91,10 +95,11 @@ h1, p {
 /* main content */
 
 /* left containt */
-.left-content  {
+.left-content {
     margin: 0 !important;
     padding: 0 !important;
 }
+
 .imgs {
     position: relative;
     width: 100%;
@@ -104,61 +109,73 @@ h1, p {
     align-items: center;
     margin-top: 30px;
 }
-.imgs > img{
+
+.imgs>img {
     position: absolute;
     width: 60%;
     height: 60%;
-    object-fit:cover ;
+    object-fit: cover;
     border: 5px solid white;
     border-radius: 5px;
     box-shadow: var(--box-shadow);
 }
-#img-1{
+
+#img-1 {
     z-index: 4;
 }
-#img-2{
+
+#img-2 {
     transform: rotate(15deg);
     z-index: 3;
 }
-#img-3{
+
+#img-3 {
     transform: rotate(-15deg);
     z-index: 2;
 }
-#img-4{
+
+#img-4 {
     transform: rotate(25deg);
     z-index: 1;
 }
+
 /* mxh */
 .mxh {
     display: inline-block;
     margin-left: 25px;
     margin-bottom: 50px;
 }
+
 .mxh p {
     margin: 0 !important;
     font-weight: bold;
 }
+
 .icon {
     text-align: center;
 }
+
 .icon a {
     color: black;
-    padding:0px 5px;
+    padding: 0px 5px;
 }
 
 
 /* right content */
-.right-content  {
+.right-content {
     padding: 0 !important;
 }
+
 .tour {
     width: 90%;
 }
+
 .timeline {
     display: flex;
     justify-content: space-between;
 }
-.time p{
+
+.time p {
     background-color: var(--soil-gold);
     padding: 5px 20px;
     border-radius: 3px;
@@ -175,18 +192,22 @@ h1, p {
     font-size: 60px;
     font-weight: bold;
 }
+
 .content p {
     font-size: 25px;
     word-spacing: 10px;
 }
+
 /* step bar */
 .stepbar {
     padding: 50px 0 30px 0;
 }
+
 .progressbar {
     counter-reset: step;
     padding: 0;
 }
+
 .progressbar li {
     float: left;
     list-style: none;
@@ -194,6 +215,7 @@ h1, p {
     text-align: center;
     width: calc(100% / 7);
 }
+
 .progressbar li:before {
     background-color: black;
     border: 1px solid #bebebe;
@@ -209,6 +231,7 @@ h1, p {
     text-align: center;
     width: 16px;
 }
+
 .progressbar li:after {
     background: var(--stronger-gray);
     content: '';
@@ -219,6 +242,7 @@ h1, p {
     width: 100%;
     z-index: -1;
 }
+
 .progressbar li:first-child:after {
     content: none;
 }
@@ -228,6 +252,7 @@ h1, p {
     position: relative;
     height: 450px;
 }
+
 .map img {
     position: absolute;
     width: 100%;
@@ -237,36 +262,42 @@ h1, p {
     z-index: -1;
     box-shadow: var(--box-shadow);
 }
+
 .gradient {
     width: inherit;
     height: inherit;
-    background-image: linear-gradient(to right, rgba(128, 128, 128, 50%), rgba(255, 255, 255, 0%));      
+    background-image: linear-gradient(to right, rgba(128, 128, 128, 50%), rgba(255, 255, 255, 0%));
     z-index: 1;
     border-radius: 5px;
 }
 
-@media screen and (max-width: 576px){
+@media screen and (max-width: 576px) {
     .logo {
         text-align: center;
     }
+
     .hashtag {
         text-align: left;
     }
+
     .mxh {
         display: flex;
         justify-content: flex-end;
     }
+
     .imgs {
         height: 320px;
     }
-#colored-logo {
-    z-index: 10;
-    transition: clip-path 1s ease-in-out;
-    clip-path: inset(0 100% 0 0);
-}
 
-.test-swipe {
-    text-align: center;
-    line-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
+    #colored-logo {
+        z-index: 10;
+        transition: clip-path 1s ease-in-out;
+        clip-path: inset(0 100% 0 0);
+    }
+
+    .test-swipe {
+        text-align: center;
+        line-height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 }
