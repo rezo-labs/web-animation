@@ -256,6 +256,9 @@ h1, p {
         display: flex;
         justify-content: flex-end;
     }
+    .imgs {
+        height: 320px;
+    }
 #colored-logo {
     z-index: 10;
     transition: clip-path 1s ease-in-out;
