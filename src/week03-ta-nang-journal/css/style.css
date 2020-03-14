@@ -56,6 +56,10 @@ body {
     position: absolute;
 }
 
+.block-content { 
+    opacity: 0;
+}
+
 /*  */
 @font-face {
     src: url('../fonts/DarkerGrotesque-Medium.ttf');
@@ -172,6 +176,7 @@ p {
     display: inline-block;
     margin-left: 25px;
     margin-bottom: 50px;
+    opacity: 0;
 }
 
 .mxh p {
@@ -201,6 +206,7 @@ p {
 .timeline {
     display: flex;
     justify-content: space-between;
+    opacity: 0;
 }
 
 .time p {
@@ -278,7 +284,8 @@ p {
 /* map */
 .map {
     position: relative;
-    height: 450px;
+    height: 300px;
+    opacity: 0;
 }
 
 .map img {

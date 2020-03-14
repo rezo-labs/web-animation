@@ -8,7 +8,7 @@ const TIME_TO_SHOW_IMAGE = 1500;
 
 const ARRAY_POST = [
     {
-        title: "Đi lạc lần thứ 1",
+        title: "Đi lạc lần thứ 1 🤬",
         description:
             "Vừa mới đặt chân tới Tà Năng cả nhóm đã bị lạc. Nguyên nhân bị lạc là vì libero ngu. Sau một hồi lạc trong rừng 30 phút thì cũng tìm được cách đi ra. không hiểu sao lại có một thằng ngu như vậy trong đoàn..."
     },
@@ -35,7 +35,8 @@ function handleLoad() {
                 setTimeout(() => startReveal(), DELAY_BEFORE_PAGE_REVEAL);
                 //
                 setTimeout(() => showContent(), 2000);
-                setTimeout(() => showParaghaph(), 3000);
+                setTimeout(() => showTitle(), 2800);
+                setTimeout(() => showParagraph(), 2800);
             }
         })
         .each(function() {
@@ -107,7 +108,7 @@ function startReveal() {
         backgroundColor: "#EAEBEA",
         easing: "easeInOutSine",
         duration: 1000,
-        delay: PAGE_REVEAL_TIME + 2 * GAP
+        delay: PAGE_REVEAL_TIME + (4*GAP)
     });
 
     // Reveal black logo
@@ -282,13 +283,17 @@ function SmoothScroll(target, speed, smooth) {
 // $(document).ready(init());
 
 var textWrapper = document.querySelector(".description");
+var title = document.querySelector(".title");
 var textWrapper1 = document.querySelector(".description-1");
 textWrapper.innerHTML = ARRAY_POST[0].description.replace(
     /\S/g,
     "<span class='letter'>$&</span>"
 );
 
-function showParaghaph() {
+title.innerHTML = ARRAY_POST[0].title
+
+
+function showParagraph() {
     anime
         .timeline({
             loop: false
@@ -306,6 +311,30 @@ function showParaghaph() {
 
 function showTitle() {
     anime({
-        targets
+        targets: ".block-content",
+        opacity: 1,
+        translateY: ["30", 0],
+        easing: "easeOutExpo",
+        duration: 1000,
     });
+
+    anime({
+        targets: ".timeline",
+        opacity: 1,
+        translateY: ["10", 0],
+        duration: 1000,
+    })
+
+    anime({
+        targets: ".mxh",
+        opacity: 1,
+        duration: 1000,
+    })
+
+    anime({
+        targets: ".map",
+        opacity: 1,
+        // translateY: ["30", 0],
+        duration: 1000,
+    })
 }
