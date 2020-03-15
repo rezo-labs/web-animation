@@ -20,7 +20,7 @@ const prodConfig = config.webpack && config.webpack.client && config.webpack.cli
 
 // Production mode
 console.log(logSymbols.info, chalk.green.bold('PRODUCTION MODE'));
-module.exports = ({ SSR = true, openAnalyzer = false }) => merge(client, {
+module.exports = () => merge(client, {
 
     mode: 'production',
 
@@ -78,7 +78,7 @@ module.exports = ({ SSR = true, openAnalyzer = false }) => merge(client, {
             },
         })),
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: 'style.css',
             chunkFilename: '[id].css'
         }),
         new UglifyJSPlugin(),
@@ -88,7 +88,7 @@ module.exports = ({ SSR = true, openAnalyzer = false }) => merge(client, {
         }),
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
-            openAnalyzer,
+            openAnalyzer: false,
             reportFilename: path.resolve(constants.DIST_DIR, 'bundle-report.html'),
         }),
     ],

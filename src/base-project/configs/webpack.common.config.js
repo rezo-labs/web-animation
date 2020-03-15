@@ -11,7 +11,6 @@ module.exports.client = {
 
     entry: {
         index: path.resolve(constants.JS_DIR, 'index.js'),
-        scss: path.resolve(constants.SCSS_DIR, 'style.scss'),
     },
 
     output: {

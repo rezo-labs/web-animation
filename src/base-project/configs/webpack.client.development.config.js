@@ -15,7 +15,7 @@ const devConfig = config.webpack && config.webpack.client && config.webpack.clie
 
 // Development mode
 console.log(logSymbols.info, chalk.red.bold('DEVELOPMENT MODE'));
-module.exports = ({ SSR = false }) => merge(client, {
+module.exports = () => merge(client, {
 
     mode: 'development',
 
