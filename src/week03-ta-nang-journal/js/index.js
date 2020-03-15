@@ -35,6 +35,7 @@ function handleLoad() {
                 setTimeout(() => startReveal(), DELAY_BEFORE_PAGE_REVEAL);
                 //
                 setTimeout(() => showContent(), 2000);
+                setTimeout(() => removeLoading(), 2800);
                 setTimeout(() => showTitle(), 2800);
                 setTimeout(() => showParagraph(), 2800);
             }
@@ -124,10 +125,15 @@ function startReveal() {
     anime({
         targets: "#loading-overlay",
         opacity: 0,
+        display: "none",
         easing: "easeInOutSine",
         duration: 500,
         delay: PAGE_REVEAL_TIME
     });
+}
+
+function removeLoading() {
+    $("#loading-overlay").remove();
 }
 
 /**FLOW SHOW MAIN */
@@ -338,3 +344,5 @@ function showTitle() {
         duration: 1000,
     })
 }
+
+
