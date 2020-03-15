@@ -1,0 +1,57 @@
+const chalk = require('chalk');
+const logSymbols = require('log-symbols');
+const path = require('path');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const constants = require('./constants.js');
+
+// Get common config
+const { client } = require('./webpack.common.config.js');
+
+const { config } = constants;
+const commonConfig = config.webpack && config.webpack.client && config.webpack.client.common;
+const prodConfig = config.webpack && config.webpack.client && config.webpack.client.prod;
+
+// Production mode
+console.log(logSymbols.info, chalk.green.bold('PRODUCTION MODE'));
+module.exports = ({ SSR = true, openAnalyzer = false }) => merge(client, {
+
+    mode: 'production',
+
+    output: {
+        filename: '[name].min.js',
+        chunkFilename: '[name].bundle.[hash].js',
+    },
+
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                default: false,
+                vendors: false,
+            },
+        },
+    },
+
+    plugins: [
+        new webpack.DefinePlugin(Object.assign({}, constants.GLOBALS, {
+            'process.env': {
+                NODE_ENV: JSON.stringify('production'),
+            },
+        })),
+        new UglifyJSPlugin(),
+        new CleanWebpackPlugin([constants.DIST_DIR], {
+            root: constants.WORK_DIR,
+            exclude: ['.gitkeep'],
+        }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            openAnalyzer,
+            reportFilename: path.resolve(constants.DIST_DIR, 'bundle-report.html'),
+        }),
+    ],
+
+}, commonConfig, prodConfig);
