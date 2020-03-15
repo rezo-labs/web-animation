@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "chalk": "^2.4.2",
+    "express": "^4.17.1",
     "log-symbols": "^3.0.0"
   },
   "devDependencies": {
@@ -48,11 +49,10 @@
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^0.28.11",
     "eslint": "^5.5.0",
-    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^14.1.0",
     "eslint-import-resolver-webpack": "^0.10.1",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "^21.27.2",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "ignore-loader": "^0.1.2",

@@ -1,2 +1,1 @@
-dist/**/*.js
-static/**/*.js
+dist/*.js
