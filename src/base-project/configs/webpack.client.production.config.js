@@ -78,7 +78,7 @@ module.exports = () => merge(client, {
             },
         })),
         new MiniCssExtractPlugin({
-            filename: 'style.css',
+            filename: 'style.min.css',
             chunkFilename: '[id].css'
         }),
         new UglifyJSPlugin(),

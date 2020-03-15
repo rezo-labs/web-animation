@@ -41,7 +41,7 @@ module.exports = () => merge(client, {
                     },
                     {
                         loader: 'css-loader',
-                        options: { minimize: true }
+                        options: { minimize: false }
                     },
                     {
                         loader: 'postcss-loader',
