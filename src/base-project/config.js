@@ -1,6 +1,4 @@
 module.exports = {
-    // The port on which the server listens upon starting the server
-    PORT: 3000,
     // The port used by Webpack Dev Server
     WEBPACK_PORT: 8080,
     // This object contains all the constants that are available to all source files

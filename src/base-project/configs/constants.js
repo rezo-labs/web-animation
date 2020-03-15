@@ -10,7 +10,6 @@ const SCSS_DIR = path.resolve(WORK_DIR, 'scss');
 const DIST_DIR = path.resolve(WORK_DIR, 'dist');
 const CONFIGS_DIR = path.resolve(WORK_DIR, 'configs');
 
-const LOCALHOST = `http://localhost:${config.PORT}`;
 const WEBPACK_LOCALHOST = `http://localhost:${config.WEBPACK_PORT}`;
 
 const DEV_GLOBALS = config.globals.dev;
@@ -30,7 +29,6 @@ module.exports = {
     SCSS_DIR,
     DIST_DIR,
     CONFIGS_DIR,
-    LOCALHOST,
     WEBPACK_LOCALHOST,
     DEV_GLOBALS,
     PROD_GLOBALS,

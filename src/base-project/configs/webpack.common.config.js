@@ -1,6 +1,5 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
 
 const constants = require('./constants.js');
@@ -17,7 +16,7 @@ module.exports.client = {
 
     output: {
         path: constants.BUILD_DIR,
-        publicPath: '/build/',
+        publicPath: '/',
     },
 
     module: {
@@ -66,34 +65,6 @@ module.exports.client = {
                 use: ['style-loader', 'css-loader'],
             },
             {
-                test: /\.(scss|sass)$/,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: { minimize: true }
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: function () {
-                                return [autoprefixer({
-                                    browsers: config.CSS_PREFIX
-                                })]
-                            }
-                        }
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            implementation: require('sass'),
-                        },
-                    }
-                ]
-            },
-            {
                 test: /\.svg$/,
                 use: [{
                     loader: '@svgr/webpack',
@@ -110,9 +81,9 @@ module.exports.client = {
     },
 
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css'
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: path.resolve(constants.WORK_DIR, 'index.html'),
         }),
         new WebpackBar(),
     ],

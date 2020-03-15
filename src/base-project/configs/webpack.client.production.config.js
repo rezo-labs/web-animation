@@ -3,10 +3,12 @@ const logSymbols = require('log-symbols');
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const autoprefixer = require('autoprefixer');
+const sass = require('sass');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const constants = require('./constants.js');
 
 // Get common config
@@ -36,12 +38,49 @@ module.exports = ({ SSR = true, openAnalyzer = false }) => merge(client, {
         },
     },
 
+    module: {
+        rules: [
+            {
+                test: /\.(scss|sass)$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: { minimize: true }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function () {
+                                return [autoprefixer({
+                                    browsers: config.CSS_PREFIX
+                                })]
+                            }
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            implementation: sass,
+                        },
+                    }
+                ]
+            },
+        ]
+    },
+
     plugins: [
         new webpack.DefinePlugin(Object.assign({}, constants.GLOBALS, {
             'process.env': {
                 NODE_ENV: JSON.stringify('production'),
             },
         })),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css'
+        }),
         new UglifyJSPlugin(),
         new CleanWebpackPlugin([constants.DIST_DIR], {
             root: constants.WORK_DIR,
