@@ -13,10 +13,41 @@ const ARRAY_POST = [
             "Vừa mới đặt chân tới Tà Năng cả nhóm đã bị lạc. Nguyên nhân bị lạc là vì libero ngu. Sau một hồi lạc trong rừng 30 phút thì cũng tìm được cách đi ra. không hiểu sao lại có một thằng ngu như vậy trong đoàn..."
     },
     {
-        title: "Hết đi lạc rồi",
+        title: "Track Point 2",
+        description: "Tìm được đường về rồi vui qúa ba má ơi."
+    },
+    {
+        title: "Track Point 3",
+        description: "Tìm được đường về rồi vui qúa ba má ơi."
+    },
+    {
+        title: "Hết đi lạc rồi Track Point 4",
+        description: "Tìm được đường về rồi vui qúa ba má ơi."
+    },
+    {
+        title: "Hết đi lạc rồi Track Point 5",
+        description: "Tìm được đường về rồi vui qúa ba má ơi."
+    },
+    {
+        title: "Hết đi lạc rồi Track Point 6",
+        description: "Tìm được đường về rồi vui qúa ba má ơi."
+    },
+    {
+        title: "Hết đi lạc rồi Track Point 7",
+        description: "Tìm được đường về rồi vui qúa ba má ơi."
+    },
+    {
+        title: "Hết đi lạc sss rồi Track Point 8",
+        description: "Tìm được đường về rồi vui qúa ba má ơi."
+    },
+    {
+        title: "Hết đi lạc  ssrồi Track Point 9",
         description: "Tìm được đường về rồi vui qúa ba má ơi."
     }
 ];
+
+sessionStorage.setItem('currentItem', 0);
+
 
 // @read https://stackoverflow.com/questions/3877027/jquery-callback-on-image-load-even-when-the-image-is-cached
 // select het tat ca hinh
