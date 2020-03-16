@@ -125,7 +125,7 @@ p {
     padding: 0 !important;
 }
 
-.imgs {
+.image-collection {
     position: relative;
     width: 100%;
     height: 500px;
@@ -135,7 +135,7 @@ p {
     margin-top: 30px;
 }
 
-/* .imgs>img {
+/* .image-collection>img {
     position: absolute;
     width: 60%;
     height: 60%;
@@ -350,7 +350,7 @@ p {
         justify-content: flex-end;
     }
 
-    .imgs {
+    .image-collection {
         height: 320px;
     }
 }

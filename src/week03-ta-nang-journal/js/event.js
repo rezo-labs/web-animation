@@ -16,7 +16,13 @@ $("#prev--btn").click(
         // add new class move-out
         $(".title").addClass("move-out");
         $(".description").addClass("move-out");
-        $(".wrapImages").empty();
+
+        // add new class vÃ´ tá»«ng hÃ¬nh
+        $(".wrapImages").children().each(function(){
+            console.log("child",$(".wrapImages").children());
+        })
+        $(".wrapImages").addClass("will-be-removed")
+
         moveOut();
         // append new node
         $(".block-title").append(
@@ -36,6 +42,20 @@ $("#prev--btn").click(
             }
             return imgArray;
         });
+
+        $(`.image-collection`).append(() => {
+            let imgArray = "";
+            for (let i = 1; i <= 4; i++) {
+                imgArray += `
+                    <img src="${
+                        TRACKLOG[currentItem].image_collections[i - 1]
+                    }" alt="" id="img-${i}">
+                `;
+            }
+            let result = `<div class="wrapImages">${imgArray}</div>`
+            return result;
+        });
+
     }, THROTTLE_TIME)
 );
 
@@ -52,8 +72,15 @@ $("#next--btn").click(
         // add new class move-out
         $(".title").addClass("move-out");
         $(".description").addClass("move-out");
-        $(".wrapImages").empty();
-        console.log($(".wrapImages img"));
+        // $(".wrapImages").empty();
+
+        $(".wrapImages").children().each(function(){
+            $(this).addClass('move-out-image');
+        })
+        $(".wrapImages").addClass("will-be-removed")
+
+        moveOutImage()
+
         moveOut();
         // append new node
         $(".block-title").append(
@@ -62,7 +89,8 @@ $("#next--btn").click(
         $(".block-description").append(
             `<p class="description">${TRACKLOG[currentItem].description}</p>`
         );
-        $(`.wrapImages`).append(() => {
+        
+        $(`.image-collection`).append(() => {
             let imgArray = "";
             for (let i = 1; i <= 4; i++) {
                 imgArray += `
@@ -71,14 +99,32 @@ $("#next--btn").click(
                     }" alt="" id="img-${i}">
                 `;
             }
-            return imgArray;
+            let result = `<div class="wrapImages fly-in">${imgArray}</div>`
+            return result;
         });
     }, THROTTLE_TIME)
 );
 
 //===== MOVE OUT ANIMATION =======
-function moveOut() {
+
+function moveOutImage() {
     console.log("RUN MOVE OUT");
+    anime({
+        targets: ".move-out-image",
+        rotate: '0deg',
+        translateX: 0,
+        translateY: 0,
+        // scale: 0.7,
+        // opacity:0,
+        duration: 500,
+        easing: "easeOutExpo",
+        complete: function() {
+            $(".will-be-removed").remove();
+        }
+    })
+}
+
+function moveOut() {
     anime({
         targets: ".move-out",
         opacity: 0,
@@ -103,35 +149,49 @@ function moveOut() {
     setTimeout(() => {
         showContent();
     }, 1);
-    showContent();
 }
 
 function showContent() {
-    console.log("START SHOW CONTENT");
+    anime({
+        targets: ".fly-in",
+        opacity: [1, 0],
+        // translateY: ["0", 20],
+        // scale: [2, 1],
+        // scale: [1,1.2],
+        direction: "reverse",
+        duration: 1000,
+        delay:5000,
+        easing: "easeOutExpo",
+        complete: function() {
+            $(".wrapImages").removeClass("fly-in")
+        }
+    })
+    // anime
+    //     .timeline({
+    //         targets: ".fly-in",
+    //         // translateX: ["0", 100], // from 100 to 250
 
-    anime
-        .timeline({
-            targets: ".wrapImages",
-            // translateX: ["0", 100], // from 100 to 250
+    //         delay: 0,
+    //         // easing: "cubicBezier(.5, .05, .1, 1)",
+    //         opacity: [1, 0],
 
-            delay: 0,
-            // easing: "cubicBezier(.5, .05, .1, 1)",
-            opacity: [1, 0],
-
-            // rotate: 360,
-            direction: "reverse",
-            easing: "linear",
-            duration: 500
-        })
-        .add({
-            targets: ".wrapImages",
-            translateY: ["0", 20]
-        })
-        .add({
-            targets: ".wrapImages",
-            // easing: "easeOutQuad",
-            scale: [2, 1]
-        });
+    //         // rotate: 360,
+    //         direction: "reverse",
+    //         easing: "linear",
+    //         duration: 500
+    //     })
+    //     .add({
+    //         targets: ".fly-in",
+    //         translateY: ["0", 20]
+    //     })
+    //     .add({
+    //         targets: ".fly-in",
+    //         // easing: "easeOutQuad",
+    //         scale: [2, 1],
+    //         complete: function() {
+    //             $(".fly-in").toggleClass(".fly-in")
+    //         }
+    //     });
 
     anime({
         targets: "#img-2",
