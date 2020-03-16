@@ -11,9 +11,15 @@ $("#prev--btn").click(
         // decrease 1 value
         currentItem = parseInt(currentItem) - 1;
         sessionStorage.setItem("currentItem", currentItem);
-        console.log(ARRAY_POST[currentItem]);
-        $(".title").text(`${ARRAY_POST[currentItem].title}`);
-        $(".description").text(`${ARRAY_POST[currentItem].description}`);
+        console.log(TRACKLOG[currentItem]);
+         // add new class move-out
+         $(".title").addClass("move-out");
+         $(".description").addClass("move-out");
+         moveOut()
+         // append new node
+         $(".block-title").append(`<h1 class="title">${TRACKLOG[currentItem].title}</h1>`);
+         $(".block-description").append(`<p class="description">${TRACKLOG[currentItem].description}</p>`);
+ 
     }, THROTTLE_TIME)
 );
 
@@ -26,11 +32,50 @@ $("#next--btn").click(
         // decrease 1 value
         currentItem = parseInt(currentItem) + 1;
         sessionStorage.setItem("currentItem", currentItem);
-        console.log(ARRAY_POST[currentItem]);
-        $(".title").text(`${ARRAY_POST[currentItem].title}`);
-        $(".description").text(`${ARRAY_POST[currentItem].description}`);
+        console.log(TRACKLOG[currentItem]);
+        // add new class move-out
+        $(".title").addClass("move-out");
+        $(".description").addClass("move-out");
+        moveOut()
+        // append new node
+        $(".block-title").append(`<h1 class="title">${TRACKLOG[currentItem].title}</h1>`);
+        $(".block-description").append(`<p class="description">${TRACKLOG[currentItem].description}</p>`);
+
     }, THROTTLE_TIME)
 );
+
+//===== MOVE OUT ANIMATION =======
+function moveOut() {
+    console.log('RUN MOVE OUT')
+    anime({
+        targets: ".move-out",
+        opacity: 0,
+        translateX: -10,
+        duration: 1000,
+        easing: "easeOutExpo",
+        complete: function() {
+            $(".move-out").remove();
+        }
+    })
+    
+    anime({
+        targets: ".move-out",
+        opacity: 0,
+        translateX: -10,
+        duration: 1000,
+        easing: "easeOutExpo",
+        complete: function() {
+            $(".move-out").remove();
+        }
+
+    })
+}
+
+// var moveTitleOut = anime({
+//     targets: ".title move-out",
+//     opacity: 0,
+// })
+
 
 // Chuyen qua moc ke tiep
 function trackPointTransition() {

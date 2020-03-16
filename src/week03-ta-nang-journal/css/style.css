@@ -56,8 +56,15 @@ body {
     position: absolute;
 }
 
-.block-content { 
+.block-title { 
     opacity: 0;
+    min-height: 80px;
+    position: relative;
+}
+
+.block-description {
+    min-height: 200px;
+    position: relative;
 }
 
 /*  */
@@ -222,14 +229,22 @@ p {
     font-weight: bolder;
 }
 
-.content h1 {
-    font-size: 60px;
-    font-weight: bold;
+.content {
+    display: flex;
+    flex-direction: column;
 }
 
-.content p {
+
+.block-title h1 {
+    font-size: 60px;
+    font-weight: bold;
+    position: absolute;
+}
+
+.block-description p {
     font-size: 25px;
     word-spacing: 10px;
+    position: absolute;
 }
 
 /* step bar */
@@ -335,3 +350,7 @@ p {
     line-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/* .move-out {
+    display: none;
+} */

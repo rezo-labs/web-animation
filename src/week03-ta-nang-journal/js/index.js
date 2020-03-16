@@ -319,18 +319,26 @@ function SmoothScroll(target, speed, smooth) {
 // call smooth scrolling:
 // $(document).ready(init());
 
-var textWrapper = document.querySelector(".description");
-var title = document.querySelector(".title");
-var textWrapper1 = document.querySelector(".description-1");
-textWrapper.innerHTML = ARRAY_POST[0].description.replace(
-    /\S/g,
-    "<span class='letter'>$&</span>"
-);
+// var textWrapper = document.querySelector(".description");
+// var title = document.querySelector(".title");
+// var textWrapper1 = document.querySelector(".description-1");
+// textWrapper.innerHTML = ARRAY_POST[0].description.replace(
+//     /\S/g,
+//     "<span class='letter'>$&</span>"
+// );
 
-title.innerHTML = ARRAY_POST[0].title
+// title.innerHTML = ARRAY_POST[0].title
 
 
 function showParagraph() {
+    let title = document.querySelector(".title");
+    let textWrapper = document.querySelector(".description");
+    textWrapper.innerHTML = ARRAY_POST[0].description.replace(
+        /\S/g,
+        "<span class='letter'>$&</span>"
+    );
+    title.innerHTML = ARRAY_POST[0].title
+
     anime
         .timeline({
             loop: false
@@ -348,7 +356,7 @@ function showParagraph() {
 
 function showTitle() {
     anime({
-        targets: ".block-content",
+        targets: ".block-title",
         opacity: 1,
         translateY: ["30", 0],
         easing: "easeOutExpo",
