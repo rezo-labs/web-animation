@@ -1,7 +1,7 @@
 console.log("EVENT");
 const DEBOUNCE_TIME = 1000;
 const THROTTLE_TIME = 1000;
-// const TIME_TO_SHOW_IMAGE = 1500;
+const TIME_SHOW_IMAGE = 500;
 
 // PREV TRACKPOINT BUTTON
 $("#prev--btn").click(
@@ -12,16 +12,18 @@ $("#prev--btn").click(
         // decrease 1 value
         currentItem = parseInt(currentItem) - 1;
         sessionStorage.setItem("currentItem", currentItem);
-        console.log(TRACKLOG[currentItem]);
         // add new class move-out
         $(".title").addClass("move-out");
         $(".description").addClass("move-out");
+        // $(".wrapImages").empty();
+        $(".wrapImages")
+            .children()
+            .each(function() {
+                $(this).addClass("move-out-image");
+            });
+        // $(".wrapImages").addClass("will-be-removed")
 
-        // add new class vÃ´ tá»«ng hÃ¬nh
-        $(".wrapImages").children().each(function(){
-            console.log("child",$(".wrapImages").children());
-        })
-        $(".wrapImages").addClass("will-be-removed")
+        moveOutImage(0.8);
 
         moveOut();
         // append new node
@@ -31,31 +33,22 @@ $("#prev--btn").click(
         $(".block-description").append(
             `<p class="description">${TRACKLOG[currentItem].description}</p>`
         );
-        $(`.wrapImages`).append(() => {
-            let imgArray = "";
-            for (let i = 1; i <= 4; i++) {
-                imgArray += `
+
+        setTimeout(() => {
+            $(`.image-collection`).append(() => {
+                let imgArray = "";
+                for (let i = 1; i <= 4; i++) {
+                    imgArray += `
                     <img src="${
                         TRACKLOG[currentItem].image_collections[i - 1]
                     }" alt="" id="img-${i}">
                 `;
-            }
-            return imgArray;
-        });
-
-        $(`.image-collection`).append(() => {
-            let imgArray = "";
-            for (let i = 1; i <= 4; i++) {
-                imgArray += `
-                    <img src="${
-                        TRACKLOG[currentItem].image_collections[i - 1]
-                    }" alt="" id="img-${i}">
-                `;
-            }
-            let result = `<div class="wrapImages">${imgArray}</div>`
-            return result;
-        });
-
+                }
+                let result = `<div class="wrapImages fly-in">${imgArray}</div>`;
+                return result;
+            });
+            showContent1();
+        }, 400);
     }, THROTTLE_TIME)
 );
 
@@ -73,13 +66,14 @@ $("#next--btn").click(
         $(".title").addClass("move-out");
         $(".description").addClass("move-out");
         // $(".wrapImages").empty();
+        $(".wrapImages")
+            .children()
+            .each(function() {
+                $(this).addClass("move-out-image");
+            });
+        // $(".wrapImages").addClass("will-be-removed")
 
-        $(".wrapImages").children().each(function(){
-            $(this).addClass('move-out-image');
-        })
-        $(".wrapImages").addClass("will-be-removed")
-
-        moveOutImage()
+        moveOutImage();
 
         moveOut();
         // append new node
@@ -89,39 +83,57 @@ $("#next--btn").click(
         $(".block-description").append(
             `<p class="description">${TRACKLOG[currentItem].description}</p>`
         );
-        
-        $(`.image-collection`).append(() => {
-            let imgArray = "";
-            for (let i = 1; i <= 4; i++) {
-                imgArray += `
+
+        setTimeout(() => {
+            $(`.image-collection`).append(() => {
+                let imgArray = "";
+                for (let i = 1; i <= 4; i++) {
+                    imgArray += `
                     <img src="${
                         TRACKLOG[currentItem].image_collections[i - 1]
                     }" alt="" id="img-${i}">
                 `;
-            }
-            let result = `<div class="wrapImages fly-in">${imgArray}</div>`
-            return result;
-        });
+                }
+                let result = `<div class="wrapImages fly-in">${imgArray}</div>`;
+                return result;
+            });
+            showContent1();
+        }, 400);
     }, THROTTLE_TIME)
 );
 
 //===== MOVE OUT ANIMATION =======
 
-function moveOutImage() {
-    console.log("RUN MOVE OUT");
+function moveOutImage(scaleNumExtra = 0) {
     anime({
         targets: ".move-out-image",
-        rotate: '0deg',
+        rotate: "0",
         translateX: 0,
         translateY: 0,
-        // scale: 0.7,
-        // opacity:0,
-        duration: 500,
+        scale: 0.7 + scaleNumExtra,
+        opacity: 0.2,
+        duration: 600,
         easing: "easeOutExpo",
         complete: function() {
-            $(".will-be-removed").remove();
+            $(".move-out-image")
+                .parent()
+                .remove();
+            anime({
+                targets: ".fly-in",
+                opacity: [0.2, 1],
+                // translateY: ["0", 20],
+                scale: [0.7 + scaleNumExtra, 1],
+                // scale: [1,1.2],
+                duration: 500,
+                easing: "cubicBezier(0,3,1,1)",
+                // easing: "linear",
+                complete: function() {
+                    // console.log("wrapImages");
+                    $(".wrapImages").removeClass("fly-in");
+                }
+            });
         }
-    })
+    });
 }
 
 function moveOut() {
@@ -135,97 +147,40 @@ function moveOut() {
             $(".move-out").remove();
         }
     });
-
-    anime({
-        targets: ".move-out",
-        opacity: 0,
-        translateX: -10,
-        duration: 1000,
-        easing: "easeOutExpo",
-        complete: function() {
-            $(".move-out").remove();
-        }
-    });
-    setTimeout(() => {
-        showContent();
-    }, 1);
 }
 
-function showContent() {
-    anime({
-        targets: ".fly-in",
-        opacity: [1, 0],
-        // translateY: ["0", 20],
-        // scale: [2, 1],
-        // scale: [1,1.2],
-        direction: "reverse",
-        duration: 1000,
-        delay:5000,
-        easing: "easeOutExpo",
-        complete: function() {
-            $(".wrapImages").removeClass("fly-in")
-        }
-    })
-    // anime
-    //     .timeline({
-    //         targets: ".fly-in",
-    //         // translateX: ["0", 100], // from 100 to 250
-
-    //         delay: 0,
-    //         // easing: "cubicBezier(.5, .05, .1, 1)",
-    //         opacity: [1, 0],
-
-    //         // rotate: 360,
-    //         direction: "reverse",
-    //         easing: "linear",
-    //         duration: 500
-    //     })
-    //     .add({
-    //         targets: ".fly-in",
-    //         translateY: ["0", 20]
-    //     })
-    //     .add({
-    //         targets: ".fly-in",
-    //         // easing: "easeOutQuad",
-    //         scale: [2, 1],
-    //         complete: function() {
-    //             $(".fly-in").toggleClass(".fly-in")
-    //         }
-    //     });
-
+function showContent1() {
     anime({
         targets: "#img-2",
-        easing: "cubicBezier(.5, .05, .1, 1)",
+        easing: "spring(1, 80, 10, 0)",
         rotate: 15,
         translateX: ["0", 50],
-        duration: TIME_TO_SHOW_IMAGE
+        delay: 600,
+        duration: 500
     });
 
     anime({
         targets: "#img-3",
-        easing: "cubicBezier(.5, .05, .1, 1)",
+        easing: "spring(1, 80, 10, 0)",
         rotate: -15,
         translateX: ["0", -30],
-        duration: TIME_TO_SHOW_IMAGE + 1000
+        delay: 600,
+        duration: 900
     });
 
     anime({
         targets: "#img-4",
-        easing: "cubicBezier(.5, .05, .1, 1)",
+        // easing: "cubicBezier(0,.99,.56,.52)",
+        easing: "spring(1, 80, 10, 0)",
         rotate: -20,
         translateY: ["0", -20],
-        duration: TIME_TO_SHOW_IMAGE + 2000
+        delay: 600,
+        duration: 1300
     });
 }
 
-// var moveTitleOut = anime({
-//     targets: ".title move-out",
-//     opacity: 0,
-// })
-
 // Chuyen qua moc ke tiep
 let childIndex = "";
-console.log("progressbar: ", $(".progressbar li .dotStage"));
 // const dotStageArray = $(".progressbar").on("click", "li", () => {
 // console.log($(this).index()){
 // const parent = $(dotStageArray)
@@ -234,17 +189,7 @@ console.log("progressbar: ", $(".progressbar li .dotStage"));
 // childIndex = $(parent).index();
 // console.log($(dotStageArray));
 // });
-$(document).ready(() => {
-    $(".progressbar li .dotStage").click(event => {
-        console.log(
-            "index: ",
-            // $(".progressbar")
-            //     .children()
-            //     .index()
-            this.event
-        );
-    });
-});
+
 // Chuyen qua moc k)e tiep
 function trackPointTransition() {
     // Animation when CURRENT item move out

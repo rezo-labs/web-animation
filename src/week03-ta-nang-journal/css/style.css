@@ -265,6 +265,11 @@ p {
     width: calc(100% / 7);
 }
 
+.fly-in {
+    transform: scale(0.7);
+    opacity: 0;
+}
+
 .progressbar li:before {
     /* background-color: black;
     border: 1px solid #bebebe;
