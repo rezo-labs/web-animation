@@ -12,14 +12,17 @@ $("#prev--btn").click(
         currentItem = parseInt(currentItem) - 1;
         sessionStorage.setItem("currentItem", currentItem);
         console.log(TRACKLOG[currentItem]);
-         // add new class move-out
-         $(".title").addClass("move-out");
-         $(".description").addClass("move-out");
-         moveOut()
-         // append new node
-         $(".block-title").append(`<h1 class="title">${TRACKLOG[currentItem].title}</h1>`);
-         $(".block-description").append(`<p class="description">${TRACKLOG[currentItem].description}</p>`);
- 
+        // add new class move-out
+        $(".title").addClass("move-out");
+        $(".description").addClass("move-out");
+        moveOut();
+        // append new node
+        $(".block-title").append(
+            `<h1 class="title">${TRACKLOG[currentItem].title}</h1>`
+        );
+        $(".block-description").append(
+            `<p class="description">${TRACKLOG[currentItem].description}</p>`
+        );
     }, THROTTLE_TIME)
 );
 
@@ -36,17 +39,20 @@ $("#next--btn").click(
         // add new class move-out
         $(".title").addClass("move-out");
         $(".description").addClass("move-out");
-        moveOut()
+        moveOut();
         // append new node
-        $(".block-title").append(`<h1 class="title">${TRACKLOG[currentItem].title}</h1>`);
-        $(".block-description").append(`<p class="description">${TRACKLOG[currentItem].description}</p>`);
-
+        $(".block-title").append(
+            `<h1 class="title">${TRACKLOG[currentItem].title}</h1>`
+        );
+        $(".block-description").append(
+            `<p class="description">${TRACKLOG[currentItem].description}</p>`
+        );
     }, THROTTLE_TIME)
 );
 
 //===== MOVE OUT ANIMATION =======
 function moveOut() {
-    console.log('RUN MOVE OUT')
+    console.log("RUN MOVE OUT");
     anime({
         targets: ".move-out",
         opacity: 0,
@@ -56,19 +62,18 @@ function moveOut() {
         complete: function() {
             $(".move-out").remove();
         }
-    })
-    
-    anime({
-        targets: ".move-out",
-        opacity: 0,
-        translateX: -10,
-        duration: 1000,
-        easing: "easeOutExpo",
-        complete: function() {
-            $(".move-out").remove();
-        }
+    });
 
-    })
+    anime({
+        targets: ".move-out",
+        opacity: 0,
+        translateX: -10,
+        duration: 1000,
+        easing: "easeOutExpo",
+        complete: function() {
+            $(".move-out").remove();
+        }
+    });
 }
 
 // var moveTitleOut = anime({
@@ -76,8 +81,18 @@ function moveOut() {
 //     opacity: 0,
 // })
 
-
 // Chuyen qua moc ke tiep
+let childIndex = "";
+console.log("progressbar: ", $(".progressbar li .dotStage"));
+const dotStageArray = $(".progressbar").on("click", "li", () => {
+    // console.log($(this).index()){
+    // const parent = $(dotStageArray)
+    //     .parent()
+    //     .parent();
+    // childIndex = $(parent).index();
+    console.log($(dotStageArray));
+});
+// Chuyen qua moc k)e tiep
 function trackPointTransition() {
     // Animation when CURRENT item move out
     // Animation when NEW item move in

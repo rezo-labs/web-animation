@@ -56,7 +56,7 @@ body {
     position: absolute;
 }
 
-.block-title { 
+.block-title {
     opacity: 0;
     min-height: 80px;
     position: relative;
@@ -266,6 +266,22 @@ p {
 }
 
 .progressbar li:before {
+    /* background-color: black;
+    border: 1px solid #bebebe;
+    border-radius: 50%;
+    color: #bebebe;
+    content: '';
+    counter-increment: step;
+    display: block;
+    font-weight: 700;
+    height: 16px;
+    line-height: 27px;
+    margin: auto;
+    text-align: center;
+    width: 16px; */
+}
+
+.dotStage {
     background-color: black;
     border: 1px solid #bebebe;
     border-radius: 50%;
