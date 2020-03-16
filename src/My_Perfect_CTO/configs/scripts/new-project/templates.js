@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+/**
+ * Template for index.html
+ * @param {*} projectName - Name of the project
+ */
+const indexHTMLContent = projectName => `<!DOCTYPE html>
 <html lang="en-US">
     <head>
         <!-- General meta tags needed-->
@@ -19,7 +23,7 @@
 
         <main>
             <section class="content">
-                <h1>Rezolabs</h1>
+                <h1>${projectName} - ${new Date().toISOString().slice(0, 10).split('-').reverse().join('/')}</h1>
                 <h2>Web animation based project</h2>
 
                 <p>
@@ -40,8 +44,12 @@
                     This is a starter front-end project which will compile SCSS and JS files using Webpack 4.
                 </p>
             </aside>
-            <div class="animejs"></div>
+            
         </main>
 
     </body>
-</html>
+</html>`;
+
+module.exports = {
+    indexHTMLContent,
+};
